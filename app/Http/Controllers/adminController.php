@@ -26,10 +26,10 @@ class adminController extends Controller
         $user->save(); //id generate timestamps
         return redirect()->back()->with('success', 'Record Inserted Successfully');
     }
-    function editUserInfo($id)
+    function editUserInfo(userInfo $id) //TypeHinting
     {
-        $data = userInfo::find($id);
-        return view('admin.editUserInfo', ['data' => $data]);
+        // $data = userInfo::find($id);
+        return view('admin.editUserInfo', ['data' => $id]);
     }
     function updateUserInfo(Request $req, $id)
     {
