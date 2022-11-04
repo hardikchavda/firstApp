@@ -7,7 +7,12 @@
         <!-- jquery validation -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Users <small>Add User</small></h3>
+                <x-heading>
+                    Add
+                    <x-slot name='description'>
+                        This page is for Add Users
+                    </x-slot>
+                </x-heading>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -22,6 +27,7 @@
                 </div>
             @endif
              --}}
+
             <form id="quickForm" action="{{ route('saveUserInfo') }}" method="post">
                 @csrf
                 @if (\Session::has('success'))

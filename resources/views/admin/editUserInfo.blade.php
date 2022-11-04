@@ -7,7 +7,9 @@
         <!-- jquery validation -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Users <small>Add User</small></h3>
+                <x-heading>
+                    Edit
+                </x-heading>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -20,7 +22,6 @@
                             <li>{!! \Session::get('success') !!}</li>
                         </ul>
                     </div>
-
                 @endif
                 <div class="card-body">
                     <div class="form-group">
