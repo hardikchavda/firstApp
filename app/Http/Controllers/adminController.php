@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\userinfo as RequestsUserinfo;
 use App\Models\userInfo;
 use Illuminate\Http\Request;
 
@@ -16,14 +17,14 @@ class adminController extends Controller
         $data = userInfo::all();
         return view('admin.addUserInfo', ['data' => $data]);
     }
-    function saveUserInfo(Request $req)
+    function saveUserInfo(RequestsUserinfo $req)
     {
         // dd($req);
-        $validated = $req->validate([
-            'name' => 'required|unique:user_infos|max:5',
-            'v_address' => 'required',
-            'v_age' => 'required',
-        ]);
+        // $validated = $req->validate([
+        //     'name' => 'required|unique:user_infos|max:5',
+        //     'v_address' => 'required',
+        //     'v_age' => 'required',
+        // ]);
         $user = new userInfo();
         $user->name = $req->name;
         $user->address = $req->v_address;
@@ -36,11 +37,11 @@ class adminController extends Controller
         // $data = userInfo::find($id);
         return view('admin.editUserInfo', ['data' => $id]);
     }
-    function updateUserInfo(Request $req, $id)
+    function updateUserInfo(RequestsUserinfo $req, $id)
     {
         // dd($req);
         $user = userInfo::find($id);
-        $user->name = $req->v_name;
+        $user->name = $req->name;
         $user->address = $req->v_address;
         $user->age = $req->v_age;
         $user->update(); //id generate timestamps
