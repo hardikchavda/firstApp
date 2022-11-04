@@ -19,8 +19,13 @@ class adminController extends Controller
     function saveUserInfo(Request $req)
     {
         // dd($req);
+        $validated = $req->validate([
+            'name' => 'required|unique:user_infos|max:5',
+            'v_address' => 'required',
+            'v_age' => 'required',
+        ]);
         $user = new userInfo();
-        $user->name = $req->v_name;
+        $user->name = $req->name;
         $user->address = $req->v_address;
         $user->age = $req->v_age;
         $user->save(); //id generate timestamps

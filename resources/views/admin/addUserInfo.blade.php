@@ -11,7 +11,17 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-
+            {{--
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+             --}}
             <form id="quickForm" action="{{ route('saveUserInfo') }}" method="post">
                 @csrf
                 @if (\Session::has('success'))
@@ -30,19 +40,29 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" name="v_name" class="form-control" id="name"
-                            placeholder="Enter Full Name">
+                        <input type="text" name="name" class="form-control" id="name"
+                            placeholder="Enter Full Name" value="{{ old('name') }}">
                     </div>
+                    @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="exampleInputPassword1">Address</label>
                         <textarea name="v_address" id="address" cols="30" rows="3" class="form-control" placeholder="Address">
+                            {{ old('v_address') }}
                         </textarea>
                     </div>
+                    @error('v_address')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="age">age</label>
                         <input type="number" name="v_age" class="form-control" id="age"
-                            placeholder="Enter Your Age">
+                            placeholder="Enter Your Age" value="{{ old('v_age') }}">
                     </div>
+                    @error('v_age')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <!-- /.card-body -->
