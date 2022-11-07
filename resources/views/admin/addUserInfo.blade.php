@@ -54,9 +54,7 @@
                     @enderror
                     <div class="form-group">
                         <label for="exampleInputPassword1">Address</label>
-                        <textarea name="v_address" id="address" cols="30" rows="3" class="form-control" placeholder="Address">
-                            {{ old('v_address') }}
-                        </textarea>
+                        <textarea name="v_address" id="address" cols="30" rows="3" class="form-control" placeholder="Address">{{ old('v_address') }}</textarea>
                     </div>
                     @error('v_address')
                         <div class="alert alert-danger">{{ $message }}</div>

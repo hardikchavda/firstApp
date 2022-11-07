@@ -24,7 +24,7 @@ class userinfo extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:user_infos|max:5',
+            'name' => 'required|unique:user_infos|max:30',
             'v_address' => 'required',
             'v_age' => 'required',
         ];

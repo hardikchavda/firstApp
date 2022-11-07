@@ -25,8 +25,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [adminController::class, 'index'])->name('main');
     // Add User Route
     Route::get('addUserInfo', [adminController::class, 'addUserInfo'])
-        ->name('addUserInfo')
-        ->middleware('throttle:only_three_visit');
+        ->name('addUserInfo');
+        // ->middleware('throttle:only_three_visit');
     Route::post('saveUserInfo', [adminController::class, 'saveUserInfo'])->name('saveUserInfo');
     Route::get('editUserInfo/{id}', [adminController::class, 'editUserInfo'])->name('editUserInfo');
     Route::post('updateUserInfo/{id}', [adminController::class, 'updateUserInfo'])->name('updateUserInfo');

@@ -15,6 +15,7 @@ class adminController extends Controller
     function addUserInfo()
     {
         $data = userInfo::all();
+        // dd($data);
         return view('admin.addUserInfo', ['data' => $data]);
     }
     function saveUserInfo(RequestsUserinfo $req)
@@ -53,5 +54,10 @@ class adminController extends Controller
         $user = userInfo::find($id);
         $user->delete(); //id generate timestamps
         return redirect()->route('addUserInfo')->with('danger', 'Record Deleted Successfully');
+    }
+
+    function allUsers()
+    {
+        return userInfo::first();
     }
 }
