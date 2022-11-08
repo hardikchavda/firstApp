@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\userInfo;
 use Database\Seeders\UserInfo as SeedersUserInfo;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {

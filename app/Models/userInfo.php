@@ -18,11 +18,11 @@ class userInfo extends Model
     //     $this->attributes['address'] = strtolower($value);
     // }
 
-    // protected function address(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn ($value) => ucfirst($value),
-    //         set: fn ($value) => strtolower($value),
-    //     );
-    // }
+    protected function address(): Attribute
+    {
+        return Attribute::make(
+            //get: fn ($value) => ucfirst($value),
+            set: fn ($value) => strtolower($value),
+        );
+    }
 }
