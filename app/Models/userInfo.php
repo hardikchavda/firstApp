@@ -13,15 +13,16 @@ class userInfo extends Model
     public $timestamps = FALSE;
 
     // // This is Mutator for lowering case.
+    // Laravel 8
     // public function getAddressAttribute($value)
     // {
     //     $this->attributes['address'] = strtolower($value);
     // }
 
+    // Laravel 9
     protected function address(): Attribute
     {
         return Attribute::make(
-            //get: fn ($value) => ucfirst($value),
             set: fn ($value) => strtolower($value),
         );
     }
